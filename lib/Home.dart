@@ -38,17 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 300,
                   isLoop: true,
                   children: [
-                    Image.network(
-                      'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                    Image.network(
-                        'https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
-                        fit: BoxFit.cover),
-                    Image.network('https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
-                        fit: BoxFit.cover),
-                    Image.network('https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
-                        fit: BoxFit.cover),
+                    Image.asset('assets/images/image1.jpg', fit: BoxFit.cover),
+                    Image.asset('assets/images/image2.jpg', fit: BoxFit.cover),
+                    Image.asset('assets/images/image3.jpg', fit: BoxFit.cover),
+                    Image.asset('assets/images/image4.jpg', fit: BoxFit.cover),
                   ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -186,7 +179,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                 ),
                 const SizedBox(width: 20),
                 const Text(
-                  'Сегодня\n\n\n17:00\n\n\n60 мин.',
+                  'Сегодня\n17:00\n60 мин.',
                   style: TextStyle(
                       height: 0,
                       fontSize: 14,
@@ -249,7 +242,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                 ),
                 const SizedBox(width: 20),
                 const Text(
-                  'Сегодня\n\n\n17:00\n\n\n60 мин.',
+                  'Сегодня\n17:00\n60 мин.',
                   style: TextStyle(
                       height: 0,
                       fontSize: 14,
@@ -312,7 +305,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                 ),
                 const SizedBox(width: 20),
                 const Text(
-                  'Сегодня\n\n\n17:00\n\n\n60 мин.',
+                  'Сегодня\n17:00\nn60 мин.',
                   style: TextStyle(
                       height: 0,
                       fontSize: 14,
