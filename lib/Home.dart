@@ -132,10 +132,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
               ),
               Container(
-                  child: Expanded(
+                  child: Row(
+                children: [
+                  Expanded(
                       child: ExpansionTileListView(
-                scheduleItems: scheduleItems,
-              )))
+                    scheduleItems: scheduleItems,
+                  ))
+                ],
+              ))
             ],
           ),
         ),
