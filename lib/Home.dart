@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'Screens/Feedback.dart';
 import 'Screens/Schedule.dart';
 import 'Other/imageSlideShow.dart';
@@ -130,10 +131,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ]),
               ),
-              Expanded(
-                  child: ExpansionTileListView(
+              Container(
+                  child: Expanded(
+                      child: ExpansionTileListView(
                 scheduleItems: scheduleItems,
-              ))
+              )))
             ],
           ),
         ),
