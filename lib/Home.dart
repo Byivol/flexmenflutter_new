@@ -146,7 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ))
                       ],
                     ),
-                    ExpansionTileListView(scheduleItems: scheduleItems)
                   ],
                 ),
               ]),
