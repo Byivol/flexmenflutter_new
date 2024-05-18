@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'Screens/Feedback.dart';
+import 'screens/Feedback.dart';
 import 'Screens/Schedule.dart';
-import 'Other/imageSlideShow.dart';
-import 'Other/checkmark.dart';
-import 'Screens/account.dart';
+import 'additional/imagesslideshow.dart';
+import 'additional/checkmark.dart';
+import 'screens/account.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
