@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'Сегодня\n14:00\n60 мин',
     'Сегодня\n14:30\n60 мин',
   ];
-  final List<String> ImgList = [
+  final List<String> imgList = [
     'assets/images/image1.jpg',
     'assets/images/image2.jpg',
     'assets/images/image3.jpg',
@@ -149,11 +149,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             _current = index;
                           });
                         }),
-                    items: ImgList.map((item) => Container(
-                          child: Center(
-                              child: Image.asset(item,
-                                  fit: BoxFit.cover, width: 600, height: 400)),
-                        )).toList(),
+                    items: imgList
+                        .map((item) => Container(
+                              child: Center(
+                                  child: Image.asset(item,
+                                      fit: BoxFit.cover,
+                                      width: 600,
+                                      height: 400)),
+                            ))
+                        .toList(),
                   ),
                   Positioned(
                       left: 0,
@@ -161,7 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: 10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: ImgList.asMap()
+                        children: imgList
+                            .asMap()
                             .entries
                             .map((entry) => GestureDetector(
                                   onTap: () =>
@@ -169,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Container(
                                     width: 12.0,
                                     height: 12.0,
-                                    margin: EdgeInsets.symmetric(
+                                    margin: const EdgeInsets.symmetric(
                                         vertical: 8.0, horizontal: 4.0),
                                     decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -244,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: const Icon(Icons.sms_outlined),
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Expanded(
                     child: FloatingActionButton.extended(
                       shape: RoundedRectangleBorder(

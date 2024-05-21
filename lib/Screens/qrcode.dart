@@ -36,43 +36,46 @@ class _QrCodeState extends State<QrCode> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'THE',
                   style: TextStyle(
-                            letterSpacing: 14,
-                            height: 0,
-                            fontSize: 55,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontWeight: FontWeight.w100),
+                      letterSpacing: 14,
+                      height: 0,
+                      fontSize: 55,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontWeight: FontWeight.w100),
                   children: <TextSpan>[
                     TextSpan(
-                        text: 'FLEX',
-                        style: TextStyle(
-                            letterSpacing: 14,
-                            height: 0,
-                            fontSize: 55,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontWeight: FontWeight.w600),
+                      text: 'FLEX',
+                      style: TextStyle(
+                          letterSpacing: 14,
+                          height: 0,
+                          fontSize: 55,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.w600),
                     ),
-                    
                   ],
-                  
-                ),   
+                ),
               ),
-              SizedBox( height: 150,
+              const SizedBox(
+                height: 150,
               ),
-              Image.asset('assets/icons/qrcode.jpg', height: 80 ),
-              SizedBox(height: 25,
+              Image.asset('assets/icons/qrcode.jpg', height: 80),
+              const SizedBox(
+                height: 25,
               ),
-              Text('324544', 
-              style: TextStyle(fontSize: 16
+              const Text(
+                '324544',
+                style: TextStyle(fontSize: 16),
               ),
-              ), 
-              Text('Губин Евгений Александрович', style: TextStyle(fontSize: 20),)
-          ],
+              const Text(
+                'Губин Евгений Александрович',
+                style: TextStyle(fontSize: 20),
+              )
+            ],
+          ),
         ),
       ),
-    ),
     );
   }
 }
