@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'screens/Feedback.dart';
 import 'Screens/Schedule.dart';
-import 'additional/imagesslideshow.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'additional/checkmark.dart';
 import 'screens/account.dart';
+import 'routes/qrcode.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +15,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Future<void> _makePhoneCall() async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: '89292615056',
+    );
+    await launchUrl(launchUri);
+  }
+
+  CarouselController controller = CarouselController();
+  int _current = 0;
   final List<String> scheduleItems = [
     'Сегодня\n12:00\n60 мин.',
     'Сегодня\n12:30\n60 мин.',
@@ -20,28 +32,160 @@ class _HomeScreenState extends State<HomeScreen> {
     'Сегодня\n14:00\n60 мин',
     'Сегодня\n14:30\n60 мин',
   ];
+  final List<String> ImgList = [
+    'assets/images/image1.jpg',
+    'assets/images/image2.jpg',
+    'assets/images/image3.jpg',
+    'assets/images/image4.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        titleSpacing: -1,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: Center(
+          child: RichText(
+            overflow: TextOverflow.ellipsis,
+            text: const TextSpan(
+              style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+              children: [
+                TextSpan(
+                    text: 'THE',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 2,
+                    )),
+                TextSpan(
+                  text: ' ',
+                  style: TextStyle(fontSize: 25, letterSpacing: -2),
+                ),
+                TextSpan(
+                    text: 'FLEX ',
+                    style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600)),
+                TextSpan(
+                    text: 'men | Тюмень',
+                    style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w300)),
+              ],
+            ),
+          ),
+        ),
+        elevation: 4.0,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const QrCode(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.qr_code_scanner)),
+        actions: [
+          IconButton(
+              onPressed: _makePhoneCall,
+              icon: const Icon(
+                Icons.call,
+                size: 26,
+              )),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Scaffold(
+                        appBar: AppBar(
+                      titleSpacing: -1,
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      title: const Text('Уведомления',
+                          style: TextStyle(fontSize: 20)),
+                      leadingWidth: 100,
+                      leading: Center(
+                          child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Закрыть',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)))),
+                      centerTitle: true,
+                    )),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.notifications,
+                size: 30,
+              )),
+        ],
+      ),
       body: CheckMarkIndicator(
         child: SafeArea(
           child: ListView(
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
             children: [
-              ImageSlideshow(
-                  indicatorColor: const Color.fromARGB(255, 0, 0, 0),
-                  indicatorRadius: 4,
-                  indicatorPadding: 15,
-                  autoPlayInterval: 5000,
-                  height: 300,
-                  isLoop: true,
-                  children: [
-                    Image.asset('assets/images/image1.jpg', fit: BoxFit.cover),
-                    Image.asset('assets/images/image2.jpg', fit: BoxFit.cover),
-                    Image.asset('assets/images/image3.jpg', fit: BoxFit.cover),
-                    Image.asset('assets/images/image4.jpg', fit: BoxFit.cover),
-                  ]),
+              Container(
+                  child: Stack(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(
+                        height: 300,
+                        viewportFraction: 1,
+                        autoPlay: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        }),
+                    items: ImgList.map((item) => Container(
+                          child: Center(
+                              child: Image.asset(item,
+                                  fit: BoxFit.cover, width: 600, height: 400)),
+                        )).toList(),
+                  ),
+                  Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 10,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: ImgList.asMap()
+                            .entries
+                            .map((entry) => GestureDetector(
+                                  onTap: () =>
+                                      controller.animateToPage(entry.key),
+                                  child: Container(
+                                    width: 12.0,
+                                    height: 12.0,
+                                    margin: EdgeInsets.symmetric(
+                                        vertical: 8.0, horizontal: 4.0),
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: (Theme.of(context).brightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Colors.black)
+                                            .withOpacity(_current == entry.key
+                                                ? 0.9
+                                                : 0.4)),
+                                  ),
+                                ))
+                            .toList(),
+                      )),
+                ],
+              )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
