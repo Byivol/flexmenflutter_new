@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'Screens/Notifications.dart';
-import 'Screens/QRcode.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,158 +13,60 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationBars(),
+      home: App(),
     );
   }
 }
 
-class BottomNavigationBars extends StatefulWidget {
-  const BottomNavigationBars({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
   @override
-  State<BottomNavigationBars> createState() => _BottomNavigationBarState();
+  State<App> createState() => _App();
 }
 
-class _BottomNavigationBarState extends State<BottomNavigationBars> {
-  Future<void> _makePhoneCall() async {
-    final Uri launchUri = Uri(
-      scheme: 'tel',
-      path: '89292615056',
-    );
-    await launchUrl(launchUri);
-  }
-
-  int _selectedIndex = 0;
-  final List<Widget> _navigationItems = [
-    const HomeScreen(),
-    const Text('1'),
-    const Text('1'),
-    const Notifications(),
-    const Text('1'),
-  ];
-  static const List<BottomNavigationBarItem> _items = [
-    BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Главная'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.directions_run), label: 'Мои занятия'),
-    BottomNavigationBarItem(icon: Icon(Icons.business), label: 'О студии'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.notifications_outlined), label: 'Уведомления'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.format_list_bulleted), label: 'Ещё'),
-  ];
-
+class _App extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          titleSpacing: -1,
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
-          title: Center(
-            child: RichText(
-              overflow: TextOverflow.ellipsis,
-              text: const TextSpan(
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                children: [
-                  TextSpan(
-                      text: 'THE',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 2,
-                      )),
-                  TextSpan(
-                    text: ' ',
-                    style: TextStyle(fontSize: 25, letterSpacing: -2),
-                  ),
-                  TextSpan(
-                      text: 'FLEX ',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600)),
-                  TextSpan(
-                      text: 'men | Тюмень',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w300)),
-                ],
-              ),
-            ),
-          ),
-          elevation: 4.0,
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const QrCode(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.qr_code_scanner)),
-          actions: [
-            IconButton(
-                onPressed: _makePhoneCall,
-                icon: const Icon(
-                  Icons.call,
-                  size: 26,
-                )),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                          appBar: AppBar(
-                        titleSpacing: -1,
-                        backgroundColor: Colors.black,
-                        foregroundColor: Colors.white,
-                        title: const Text('Уведомления',
-                            style: TextStyle(fontSize: 20)),
-                        leadingWidth: 100,
-                        leading: Center(
-                            child: TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Закрыть',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)))),
-                        centerTitle: true,
-                      )),
-                    ),
-                  );
-                },
-                icon: const Icon(
-                  Icons.notifications,
-                  size: 30,
-                )),
-          ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: PersistentTabView(
+        tabs: [
+          PersistentTabConfig(
+              screen: const HomeScreen(),
+              item: ItemConfig(
+                  activeForegroundColor: Colors.black,
+                  icon: const Icon(Icons.home_filled),
+                  title: "Главная")),
+          PersistentTabConfig(
+              screen: const Text('1'),
+              item: ItemConfig(
+                  activeForegroundColor: Colors.black,
+                  icon: const Icon(Icons.directions_run),
+                  title: "Мои занятия")),
+          PersistentTabConfig(
+              screen: const Text('1'),
+              item: ItemConfig(
+                  activeForegroundColor: Colors.black,
+                  icon: const Icon(Icons.business),
+                  title: "О студии")),
+          PersistentTabConfig(
+              screen: const Text('1'),
+              item: ItemConfig(
+                  activeForegroundColor: Colors.black,
+                  icon: const Icon(Icons.notifications_outlined),
+                  title: "Уведомления")),
+          PersistentTabConfig(
+              screen: const Text('1'),
+              item: ItemConfig(
+                  activeForegroundColor: Colors.black,
+                  icon: const Icon(Icons.format_list_bulleted),
+                  title: "Ещё")),
+        ],
+        navBarBuilder: (navBarConfig) => Style1BottomNavBar(
+          navBarConfig: navBarConfig,
         ),
-        body: _navigationItems.elementAt(_selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Colors.black,
-            unselectedItemColor: const Color.fromARGB(186, 61, 61, 61),
-            iconSize: 26,
-            elevation: 0,
-            unselectedFontSize: 10,
-            selectedFontSize: 10,
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            items: _items,
-            type: BottomNavigationBarType.fixed,
-            landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-            selectedLabelStyle: const TextStyle(
-                overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
-            unselectedLabelStyle:
-                const TextStyle(overflow: TextOverflow.visible)));
+      ),
+    );
   }
 }
