@@ -154,8 +154,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Center(
                                   child: Image.asset(item,
                                       fit: BoxFit.cover,
-                                      width: 600,
-                                      height: 400)),
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height)),
                             ))
                         .toList(),
                   ),
