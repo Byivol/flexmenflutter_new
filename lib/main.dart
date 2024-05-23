@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
-
+import 'Screens/schedule.dart';
+import 'Screens/aboutstudios.dart';
+import 'Screens/notifications.dart';
+import 'Screens/more.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -39,25 +42,25 @@ class _App extends State<App> {
                   icon: const Icon(Icons.home_filled),
                   title: "Главная")),
           PersistentTabConfig(
-              screen: const Text('1'),
+              screen: Schedule(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.directions_run),
                   title: "Мои занятия")),
           PersistentTabConfig(
-              screen: const Text('1'),
+              screen: AboutStudios(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.business),
                   title: "О студии")),
           PersistentTabConfig(
-              screen: const Text('1'),
+              screen: Notifications(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.notifications_outlined),
                   title: "Уведомления")),
           PersistentTabConfig(
-              screen: const Text('1'),
+              screen: More(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.format_list_bulleted),

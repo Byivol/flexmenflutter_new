@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Schedule extends StatefulWidget {
-  const Schedule({super.key});
+class More extends StatefulWidget {
+  const More({super.key});
 
   @override
-  State<Schedule> createState() => _ScheduleState();
+  State<More> createState() => _MoreState();
 }
 
-class _ScheduleState extends State<Schedule> {
+class _MoreState extends State<More> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,11 +15,10 @@ class _ScheduleState extends State<Schedule> {
         titleSpacing: -1,
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text('Мои занятия', style: TextStyle(fontSize: 20)),
+        title: const Text('Ещё', style: TextStyle(fontSize: 20)),
         leadingWidth: 100,
         centerTitle: true,
       ),
-      
     );
   }
 }

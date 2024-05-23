@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'screens/Feedback.dart';
-import 'Screens/Schedule.dart';
+import 'routes/Schedule.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'additional/checkmark.dart';
 import 'screens/account.dart';
 import 'routes/qrcode.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -350,13 +351,13 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                       TextSpan(
                           text: '\nСвободно: 4',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                       TextSpan(
                           text: '\nЕгоров Василий',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                     ],
@@ -413,13 +414,13 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                       TextSpan(
                           text: '\nСвободно: 2',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                       TextSpan(
                           text: '\nДинар Айдаров',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                     ],
@@ -454,7 +455,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                 ),
                 const SizedBox(width: 20),
                 const Text(
-                  'Сегодня\n17:00\nn60 мин.',
+                  'Сегодня\n17:00\n60 мин.',
                   style: TextStyle(
                       height: 0,
                       fontSize: 14,
@@ -476,13 +477,13 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                       TextSpan(
                           text: '\nСвободно: 1',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                       TextSpan(
                           text: '\nЕгоров Василий',
                           style: TextStyle(
-                              color: Color.fromARGB(185, 0, 0, 0),
+                              color: Color.fromARGB(169, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                     ],
