@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'screens/Feedback.dart';
+import 'routes/Feedback.dart';
 import 'routes/Schedule.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'additional/checkmark.dart';
-import 'screens/account.dart';
+import 'routes/account.dart';
 import 'routes/qrcode.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 
 class HomeScreen extends StatefulWidget {

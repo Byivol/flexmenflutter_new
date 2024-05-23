@@ -30,7 +30,22 @@ class _FeedbackTFState extends State<FeedbackTF> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white)))),
           centerTitle: true,
+          
         ),
+      body: Column(
+  children: [
+    Padding(
+      padding: const EdgeInsets.only(top: 14.0),
+      child: Center(child: Text('Нам важно Ваше мнение', style: TextStyle(fontSize: 12),),),
+    ),
+    Align(alignment: Alignment.centerLeft, child: Text('  ')),
+    TextField(
+  decoration: InputDecoration(
+    hintText: 'Начните набирать текст',
+  ),
+),
+  ],
+),
       ),
     );
   }

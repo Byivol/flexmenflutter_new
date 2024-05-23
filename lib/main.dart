@@ -48,7 +48,7 @@ class _App extends State<App> {
                   icon: const Icon(Icons.directions_run),
                   title: "Мои занятия")),
           PersistentTabConfig(
-              screen: AboutStudios(),
+              screen: const AboutStudios(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.business),
