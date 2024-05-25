@@ -7,8 +7,6 @@ import 'routes/account.dart';
 import 'routes/qrcode.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -138,8 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
             children: [
-              Container(
-                  child: Stack(
+              Stack(
                 children: [
                   CarouselSlider(
                     options: CarouselOptions(
@@ -152,14 +149,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         }),
                     items: imgList
-                        .map((item) => Container(
-                              child: Center(
-                                  child: Image.asset(item,
-                                      fit: BoxFit.cover,
-                                      width: MediaQuery.of(context).size.width,
-                                      height:
-                                          MediaQuery.of(context).size.height)),
-                            ))
+                        .map((item) => Center(
+                            child: Image.asset(item,
+                                fit: BoxFit.cover,
+                                width: MediaQuery.of(context).size.width,
+                                height: MediaQuery.of(context).size.height)))
                         .toList(),
                   ),
                   Positioned(
@@ -193,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             .toList(),
                       )),
                 ],
-              )),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -275,15 +269,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ]),
               ),
-              Container(
-                  child: Row(
+              Row(
                 children: [
                   Expanded(
                       child: ExpansionTileListView(
                     scheduleItems: scheduleItems,
                   ))
                 ],
-              ))
+              )
             ],
           ),
         ),
