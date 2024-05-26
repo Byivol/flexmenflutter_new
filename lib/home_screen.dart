@@ -1,3 +1,4 @@
+import 'routes/lesson.dart';
 import 'package:flutter/material.dart';
 import 'routes/Feedback.dart';
 import 'routes/Schedule.dart';
@@ -285,215 +286,39 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class ExpansionTileListView extends StatefulWidget {
+class ExpansionTileListView extends StatelessWidget {
   final List<String> scheduleItems;
   const ExpansionTileListView({required this.scheduleItems, super.key});
-
-  @override
-  State<ExpansionTileListView> createState() => _ExpansionTileListView();
-}
-
-class _ExpansionTileListView extends State<ExpansionTileListView> {
-  List<String> get scheduleItems => widget.scheduleItems;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: ExpansionTile(
       initiallyExpanded: true,
-      shape: const Border(top: BorderSide.none),
+      shape: const Border(
+          top: BorderSide.none,
+          bottom: BorderSide(color: Color.fromARGB(122, 0, 0, 0), width: 0)),
       onExpansionChanged: (e) {},
       title: const Text("Ближайшие занятия:"),
-      children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 80,
-          child: InkWell(
-            onTap: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Container(
-                    width: 4,
-                    height: 60,
-                    color: const Color.fromARGB(166, 241, 23, 23),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                const Text(
-                  'Сегодня\n17:00\n60 мин.',
-                  style: TextStyle(
-                      height: 0,
-                      fontSize: 14,
-                      color: Color.fromARGB(169, 0, 0, 0),
-                      fontWeight: FontWeight.w300),
-                ),
-                const SizedBox(width: 30),
-                RichText(
-                  overflow: TextOverflow.ellipsis,
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'KICKBOXING ',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 19,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      TextSpan(
-                          text: '\nСвободно: 4',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                      TextSpan(
-                          text: '\nЕгоров Василий',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const Divider(height: 0),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 80,
-          child: InkWell(
-            onTap: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Container(
-                    width: 4,
-                    height: 60,
-                    color: const Color.fromARGB(137, 17, 255, 156),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                const Text(
-                  'Сегодня\n17:00\n60 мин.',
-                  style: TextStyle(
-                      height: 0,
-                      fontSize: 14,
-                      color: Color.fromARGB(169, 0, 0, 0),
-                      fontWeight: FontWeight.w300),
-                ),
-                const SizedBox(width: 30),
-                RichText(
-                  overflow: TextOverflow.ellipsis,
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'CYCLING ',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 19,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      TextSpan(
-                          text: '\nСвободно: 2',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                      TextSpan(
-                          text: '\nДинар Айдаров',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const Divider(height: 0),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 80,
-          child: InkWell(
-            onTap: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Container(
-                    width: 4,
-                    height: 60,
-                    color: const Color.fromARGB(131, 255, 195, 126),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                const Text(
-                  'Сегодня\n17:00\n60 мин.',
-                  style: TextStyle(
-                      height: 0,
-                      fontSize: 14,
-                      color: Color.fromARGB(169, 0, 0, 0),
-                      fontWeight: FontWeight.w300),
-                ),
-                const SizedBox(width: 30),
-                RichText(
-                  overflow: TextOverflow.ellipsis,
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'TRX ',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 19,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      TextSpan(
-                          text: '\nСвободно: 1',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                      TextSpan(
-                          text: '\nЕгоров Василий',
-                          style: TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w100)),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const Divider(height: 0),
+      children: const [
+        FitLesson(
+            nameLesson: 'KICKBOXING',
+            timeLesson: 'Сегодня\n17:00\n60 мин',
+            nameTrainer: 'Егоров Василий',
+            countFree: 10,
+            colorColumn: Color.fromARGB(255, 253, 88, 88)),
+        FitLesson(
+            nameLesson: 'CYCLING',
+            timeLesson: 'Сегодня\n17:00\n60 мин',
+            nameTrainer: 'Динар Айдаров',
+            countFree: 2,
+            colorColumn: Color.fromARGB(137, 17, 255, 156)),
+        FitLesson(
+            nameLesson: 'TRX',
+            timeLesson: 'Сегодня\n17:00\n60 мин',
+            nameTrainer: 'Егоров Василий',
+            countFree: 1,
+            colorColumn: Color.fromARGB(131, 255, 195, 126)),
       ],
     ));
   }

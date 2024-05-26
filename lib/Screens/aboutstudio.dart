@@ -58,11 +58,11 @@ class _AboutStudiosState extends State<AboutStudios> {
                                 for (int i = 0;
                                     i < _selectedWeather.length;
                                     i++) {
-                                  _selectedWeather[i] = i == index;
+                                  _selectedWeather[i] = !_selectedWeather[i];
                                 }
                               });
                             },
-                            color: Colors.transparent,
+                            color: Colors.white,
                             selectedColor: Colors.white,
                             fillColor: Colors.transparent,
                             highlightColor: Colors.transparent,
@@ -102,19 +102,25 @@ class _AboutStudiosState extends State<AboutStudios> {
                   padding:
                       const EdgeInsets.only(right: 20, left: 20, bottom: 15),
                   child: TextField(
+                    cursorColor: const Color.fromARGB(255, 31, 31, 31),
                     onTapOutside: (event) {
                       FocusManager.instance.primaryFocus?.unfocus();
                     },
                     decoration: InputDecoration(
+                      focusColor: Colors.black,
                       hintText: 'Поиск',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(226, 0, 0, 0)),
+                      hintStyle: const TextStyle(color: Colors.black),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: const BorderSide(color: Colors.black)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: const BorderSide(color: Colors.white)),
                       contentPadding: const EdgeInsets.only(left: 16.0),
                       fillColor: const Color.fromARGB(255, 255, 255, 255),
                       filled: true,
+                      suffixStyle: const TextStyle(
+                          color: Colors.black), // Введенный текст
                       suffixIcon: const Icon(Icons.search,
                           color: Color.fromARGB(226, 0, 0, 0)),
                     ),
