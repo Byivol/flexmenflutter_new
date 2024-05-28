@@ -25,7 +25,7 @@ class _NotificationsState extends State<Notifications> {
           children: [
             RichText(
               text: const TextSpan(
-                text: 'Сегодня\n17:00\n60 мин.',
+                text: 'Список пуст',
                 style: TextStyle(
                     letterSpacing: 14,
                     height: 0,
