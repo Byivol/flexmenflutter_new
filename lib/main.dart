@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
-import 'Screens/schedule.dart';
-import 'Screens/aboutstudio.dart';
-import 'Screens/notifications.dart';
-import 'Screens/more.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'screens.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
 
@@ -30,6 +29,17 @@ class App extends StatefulWidget {
 }
 
 class _App extends State<App> {
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    await Future.delayed(const Duration(seconds: 2));
+    FlutterNativeSplash.remove();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

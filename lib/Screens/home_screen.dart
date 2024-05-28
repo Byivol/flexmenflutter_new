@@ -1,12 +1,4 @@
-import 'routes/lesson.dart';
-import 'package:flutter/material.dart';
-import 'routes/Feedback.dart';
-import 'routes/Schedule.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'additional/checkmark.dart';
-import 'routes/account.dart';
-import 'routes/qrcode.dart';
-import 'package:url_launcher/url_launcher.dart';
+part of '../screens.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,13 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   CarouselController controller = CarouselController();
   int _current = 0;
-  final List<String> scheduleItems = [
-    'Сегодня\n12:00\n60 мин.',
-    'Сегодня\n12:30\n60 мин.',
-    'Сегодня\n13:00\n60 мин',
-    'Сегодня\n14:00\n60 мин',
-    'Сегодня\n14:30\n60 мин',
-  ];
+
   final List<String> imgList = [
     'assets/images/image1.jpg',
     'assets/images/image2.jpg',
@@ -270,13 +256,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ]),
               ),
-              Row(
-                children: [
-                  Expanded(
-                      child: ExpansionTileListView(
-                    scheduleItems: scheduleItems,
-                  ))
-                ],
+              const Row(
+                children: [Expanded(child: ExpansionTileListView())],
               )
             ],
           ),
@@ -287,8 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class ExpansionTileListView extends StatelessWidget {
-  final List<String> scheduleItems;
-  const ExpansionTileListView({required this.scheduleItems, super.key});
+  const ExpansionTileListView({super.key});
 
   @override
   Widget build(BuildContext context) {

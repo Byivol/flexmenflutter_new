@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../screens.dart';
 
 class Schedule extends StatefulWidget {
   const Schedule({super.key});
@@ -19,7 +19,6 @@ class _ScheduleState extends State<Schedule> {
         leadingWidth: 100,
         centerTitle: true,
       ),
-      
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../screens.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -44,13 +44,10 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ],
               ),
-              
-              
-              
             ),
-        ],
+          ],
         ),
-            ),
+      ),
     );
   }
 }

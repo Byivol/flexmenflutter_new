@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../screens.dart';
 
 class AboutStudios extends StatefulWidget {
   const AboutStudios({super.key});
