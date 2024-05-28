@@ -31,7 +31,7 @@ class _AboutStudiosState extends State<AboutStudios> {
                           Text('О студии',
                               style:
                                   TextStyle(fontSize: 16, color: Colors.white)),
-                          Text('Тюмень    ',
+                          Text(' Тюмень',
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Color.fromARGB(255, 223, 223, 223))),
@@ -109,7 +109,7 @@ class _AboutStudiosState extends State<AboutStudios> {
                     decoration: InputDecoration(
                       focusColor: Colors.black,
                       hintText: 'Поиск',
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: Color.fromARGB(127, 0, 0, 0)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(color: Colors.black)),
@@ -122,7 +122,7 @@ class _AboutStudiosState extends State<AboutStudios> {
                       suffixStyle: const TextStyle(
                           color: Colors.black), // Введенный текст
                       suffixIcon: const Icon(Icons.search,
-                          color: Color.fromARGB(226, 0, 0, 0)),
+                          color: Color.fromARGB(127, 0, 0, 0)),
                     ),
                   ),
                 ),
@@ -130,7 +130,7 @@ class _AboutStudiosState extends State<AboutStudios> {
             ),
           ),
         ),
-      ),
+      ),  
     );
   }
 }
