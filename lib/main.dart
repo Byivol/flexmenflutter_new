@@ -5,7 +5,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'screens.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
 
@@ -37,9 +38,9 @@ class _App extends State<App> {
 
   void initialization() async {
     await Future.delayed(const Duration(seconds: 2));
-    FlutterNativeSplash.remove();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+    FlutterNativeSplash.remove();
   }
 
   @override
