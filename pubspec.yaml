@@ -1,4 +1,4 @@
-name: flexmenflutter
+name: theflexmen
 description: "A new Flutter project."
 
 publish_to: 'none'
@@ -16,17 +16,27 @@ dependencies:
   persistent_bottom_nav_bar_v2: ^5.2.3
   carousel_slider: ^4.2.1
   flutter_native_splash: ^2.4.0
+  rename: ^3.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^3.0.0
+  flutter_launcher_icons: "^0.13.1"
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
     - assets/icons/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/logo_app.jpg"
+  web:
+    generate: true
+    image_path: "assets/icons/logo_app.jpg"
+
 flutter_native_splash:
   color: "#ffffff"
   color_dark: "#000000"
