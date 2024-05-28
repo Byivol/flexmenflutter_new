@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../screens.dart';
 
 class Schedule extends StatefulWidget {
   const Schedule({super.key});
@@ -15,18 +15,8 @@ class _ScheduleState extends State<Schedule> {
         titleSpacing: -1,
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text('Расписание', style: TextStyle(fontSize: 20)),
+        title: const Text('Мои занятия', style: TextStyle(fontSize: 20)),
         leadingWidth: 100,
-        leading: Center(
-            child: TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Закрыть',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)))),
         centerTitle: true,
       ),
     );
