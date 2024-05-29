@@ -130,7 +130,39 @@ class _AboutStudiosState extends State<AboutStudios> {
             ),
           ),
         ),
-      ),  
+      ),
+      body:Column (
+        children:[ SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: 55,
+          child: InkWell(
+            onTap: () {  
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(width: 15),
+                Text(
+                  'THE FLEX|Тюмень|Фабричная',
+                  style: const TextStyle(
+                      height: 0,
+                      fontSize: 17,
+                      color: Color.fromARGB(169, 0, 0, 0),
+                      fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(width: 30),
+                const Spacer(),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 15,
+                  color: Color.fromARGB(153, 0, 0, 0),
+                ),
+              ],
+            ),
+          ),
+        ),
+        ]
+      ),        
     );
   }
 }
