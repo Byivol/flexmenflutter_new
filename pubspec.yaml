@@ -17,11 +17,17 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_native_splash: ^2.4.0
   rename: ^3.0.2
+  intl_phone_number_input: ^0.7.4
+  
+  
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.13.1"
+
 
 flutter:
   uses-material-design: true
