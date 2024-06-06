@@ -1,4 +1,17 @@
-part of '../screens.dart';
+import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:theflexmen/screens.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:theflexmen/additional/checkmark.dart';
+import 'package:theflexmen/additional/lessons.dart';
+
+import 'package:theflexmen/routes/schedule.dart';
+import 'package:theflexmen/routes/feedback.dart';
+import 'package:theflexmen/routes/account.dart';
+import 'package:theflexmen/routes/lesson.dart';
+import 'package:theflexmen/routes/qrcode.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,13 +31,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   CarouselController controller = CarouselController();
   int _current = 0;
-
-  final List<String> imgList = [
+  final List<String> _imgList = [
     'assets/images/image1.jpg',
     'assets/images/image2.jpg',
     'assets/images/image3.jpg',
     'assets/images/image4.jpg',
   ];
+  List<Image> imgListObj = [];
+  @override
+  void initState() {
+    super.initState();
+    for (var element in _imgList) {
+      imgListObj.add(Image.asset(element));
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    for (Image element in imgListObj) {
+      precacheImage(element.image, context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,31 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
           IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Scaffold(
-                        appBar: AppBar(
-                      titleSpacing: -1,
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
-                      title: const Text('Уведомления',
-                          style: TextStyle(fontSize: 20)),
-                      leadingWidth: 100,
-                      leading: Center(
-                          child: TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Закрыть',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)))),
-                      centerTitle: true,
-                    )),
-                  ),
-                );
+                pushWithNavBar(context,
+                    MaterialPageRoute(builder: (context) => Notifications()));
               },
               icon: const Icon(
                 Icons.notifications,
@@ -135,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             _current = index;
                           });
                         }),
-                    items: imgList
+                    items: _imgList
                         .map((item) => Center(
                             child: Image.asset(item,
                                 fit: BoxFit.cover,
@@ -149,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: 10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: imgList
+                        children: _imgList
                             .asMap()
                             .entries
                             .map((entry) => GestureDetector(
@@ -274,32 +280,13 @@ class ExpansionTileListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: ExpansionTile(
-      initiallyExpanded: true,
-      shape: const Border(
-          top: BorderSide.none,
-          bottom: BorderSide(color: Color.fromARGB(122, 0, 0, 0), width: 0)),
-      onExpansionChanged: (e) {},
-      title: const Text("Ближайшие занятия:"),
-      children: const [
-        FitLesson(
-            nameLesson: 'KICKBOXING',
-            timeLesson: 'Сегодня\n17:00\n60 мин',
-            nameTrainer: 'Егоров Василий',
-            countFree: 10,
-            colorColumn: Color.fromARGB(255, 253, 88, 88)),
-        FitLesson(
-            nameLesson: 'CYCLING',
-            timeLesson: 'Сегодня\n17:00\n60 мин',
-            nameTrainer: 'Динар Айдаров',
-            countFree: 2,
-            colorColumn: Color.fromARGB(137, 17, 255, 156)),
-        FitLesson(
-            nameLesson: 'TRX',
-            timeLesson: 'Сегодня\n17:00\n60 мин',
-            nameTrainer: 'Егоров Василий',
-            countFree: 1,
-            colorColumn: Color.fromARGB(131, 255, 195, 126)),
-      ],
-    ));
+            initiallyExpanded: true,
+            shape: const Border(
+                top: BorderSide.none,
+                bottom:
+                    BorderSide(color: Color.fromARGB(122, 0, 0, 0), width: 0)),
+            onExpansionChanged: (e) {},
+            title: const Text("Ближайшие занятия:"),
+            children: Lessons().getLessonsForDate(DateTime.now())!.toList()));
   }
 }

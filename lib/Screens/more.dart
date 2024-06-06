@@ -19,7 +19,6 @@ class _MoreState extends State<More> {
           leadingWidth: 100,
           centerTitle: true,
         ),
-        backgroundColor: const Color.fromARGB(255, 228, 228, 228),
         body: ListView(
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),

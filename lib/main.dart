@@ -3,10 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'screens.dart';
+import 'Screens/home_screen.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   runApp(const MyApp());
 }
 
@@ -48,6 +51,7 @@ class _App extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PersistentTabView(
+        stateManagement: false,
         tabs: [
           PersistentTabConfig(
               screen: const HomeScreen(),
@@ -56,7 +60,7 @@ class _App extends State<App> {
                   icon: const Icon(Icons.home_filled),
                   title: "Главная")),
           PersistentTabConfig(
-              screen: const Schedule(),
+              screen: MySchedule(),
               item: ItemConfig(
                   activeForegroundColor: Colors.black,
                   icon: const Icon(Icons.directions_run),

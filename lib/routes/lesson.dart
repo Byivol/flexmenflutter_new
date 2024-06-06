@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
+import 'package:theflexmen/additional/lessons.dart';
+import 'package:theflexmen/screens.dart';
 
 class FitLesson extends StatelessWidget {
   final String nameLesson;
@@ -6,6 +9,7 @@ class FitLesson extends StatelessWidget {
   final int countFree;
   final String nameTrainer;
   final Color colorColumn;
+
   const FitLesson({
     super.key,
     required this.nameLesson,
@@ -14,6 +18,7 @@ class FitLesson extends StatelessWidget {
     required this.nameTrainer,
     required this.colorColumn,
   });
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -29,6 +34,7 @@ class FitLesson extends StatelessWidget {
                   builder: (context) => SelectedFitLesson(
                     nameLesson: nameLesson,
                     colorBorder: colorColumn,
+                    lesson: this,
                   ),
                 ),
               );
@@ -92,40 +98,82 @@ class FitLesson extends StatelessWidget {
   }
 }
 
-class SelectedFitLesson extends StatelessWidget {
+class SelectedFitLesson extends StatefulWidget {
   final String nameLesson;
   final Color colorBorder;
-  const SelectedFitLesson(
-      {super.key, required this.nameLesson, required this.colorBorder});
+
+  FitLesson lesson;
+  SelectedFitLesson(
+      {super.key,
+      required this.nameLesson,
+      required this.colorBorder,
+      required this.lesson});
+
+  @override
+  _SelectedFitLessonState createState() => _SelectedFitLessonState();
+}
+
+class _SelectedFitLessonState extends State<SelectedFitLesson> {
+  bool _isRegistered = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      titleSpacing: -1,
-      backgroundColor: Colors.black,
-      foregroundColor: Colors.white,
-      title: Text(nameLesson, style: const TextStyle(fontSize: 20)),
-      leadingWidth: 100,
-      leading: Center(
-        child: TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Закрыть',
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white)),
+      appBar: AppBar(
+        titleSpacing: -1,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: Text(widget.nameLesson, style: const TextStyle(fontSize: 20)),
+        leadingWidth: 100,
+        leading: Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Закрыть',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+          ),
+        ),
+        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(4.0),
+          child: Container(
+            color: widget.colorBorder,
+            height: 4.0,
+          ),
         ),
       ),
-      centerTitle: true,
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(4.0),
+      body: Center(
         child: Container(
-          color: colorBorder,
-          height: 4.0,
+          width: 120,
+          child: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _isRegistered = !_isRegistered;
+              });
+              if (_isRegistered) {
+                IconSnackBar.show(
+                  context,
+                  snackBarType: SnackBarType.success,
+                  snackBarStyle: const SnackBarStyle(
+                    maxLines: 1,
+                  ),
+                  label: 'Успешно!',
+                );
+                selectedFitLesson.add(widget.lesson);
+              }
+            },
+            child: Text(
+              _isRegistered ? 'Отписаться' : 'Записаться',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.black,
+          ),
         ),
       ),
-    ));
+    );
   }
 }
