@@ -53,7 +53,7 @@ class _App extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PersistentTabView(
-        stateManagement: true,
+        stateManagement: false,
         tabs: [
           PersistentTabConfig(
               screen: const HomeScreen(),

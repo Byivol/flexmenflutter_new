@@ -29,7 +29,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 255,
+                height: 270,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
