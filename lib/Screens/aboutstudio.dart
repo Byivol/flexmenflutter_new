@@ -13,6 +13,7 @@ class _AboutStudiosState extends State<AboutStudios> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(120.0),
           child: AppBar(

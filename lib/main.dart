@@ -7,10 +7,12 @@ import 'Screens/home_screen.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: App(),
     );
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
 class App extends StatefulWidget {
-  const App({super.key});
+  App({super.key});
 
   @override
   State<App> createState() => _App();
@@ -51,7 +53,7 @@ class _App extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PersistentTabView(
-        stateManagement: false,
+        stateManagement: true,
         tabs: [
           PersistentTabConfig(
               screen: const HomeScreen(),

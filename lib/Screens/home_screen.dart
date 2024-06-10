@@ -10,7 +10,6 @@ import 'package:theflexmen/additional/lessons.dart';
 import 'package:theflexmen/routes/schedule.dart';
 import 'package:theflexmen/routes/feedback.dart';
 import 'package:theflexmen/routes/account.dart';
-import 'package:theflexmen/routes/lesson.dart';
 import 'package:theflexmen/routes/qrcode.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         titleSpacing: -1,
         backgroundColor: Colors.black,
@@ -287,6 +287,6 @@ class ExpansionTileListView extends StatelessWidget {
                     BorderSide(color: Color.fromARGB(122, 0, 0, 0), width: 0)),
             onExpansionChanged: (e) {},
             title: const Text("Ближайшие занятия:"),
-            children: Lessons().getLessonsForDate(DateTime.now())!.toList()));
+            children: lessons.getLessonsForDate(DateTime.now()).toList()));
   }
 }
