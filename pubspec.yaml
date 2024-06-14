@@ -18,6 +18,9 @@ dependencies:
   flutter_native_splash: ^2.4.0
   rename: ^3.0.2
   intl_phone_number_input: ^0.7.4
+  country_list: ^0.0.5
+  intl_phone_field: ^3.2.0
+  
   
   
 
@@ -34,6 +37,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/flags/
 
 flutter_launcher_icons:
   android: "launcher_icon"

@@ -29,7 +29,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 490,
+                height: 255,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -66,15 +66,7 @@ class _MoreState extends State<More> {
                     ),
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    ListTile(
-                      onTap: () {},
-                      title: const Text('Новости',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w300)),
-                      trailing: const Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Color.fromARGB(125, 43, 43, 43)),
-                      leading: const Icon(Icons.unsubscribe_outlined, size: 25),
-                    ),
+                    
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
@@ -90,40 +82,6 @@ class _MoreState extends State<More> {
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
                       onTap: () {},
-                      title: const Text('Сотрудники',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w300)),
-                      trailing: const Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Color.fromARGB(125, 43, 43, 43)),
-                      leading: const Icon(Icons.groups_outlined, size: 25),
-                    ),
-                    const Divider(
-                        color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    ListTile(
-                      onTap: () {},
-                      title: const Text('Мои достижения',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w300)),
-                      trailing: const Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Color.fromARGB(125, 43, 43, 43)),
-                      leading: const Icon(Icons.donut_large_outlined, size: 25),
-                    ),
-                    const Divider(
-                        color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    ListTile(
-                      onTap: () {},
-                      title: const Text('Стать членом студии',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w300)),
-                      trailing: const Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Color.fromARGB(125, 43, 43, 43)),
-                      leading:
-                          const Icon(Icons.folder_shared_outlined, size: 25),
-                    ),
-                    const Divider(
-                        color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    ListTile(
-                      onTap: () {},
                       title: const Text('Позвонить в студию',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -134,18 +92,8 @@ class _MoreState extends State<More> {
                         size: 25,
                       ),
                     ),
-                    const Divider(
-                        color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    ListTile(
-                      onTap: () {},
-                      title: const Text('Персональный тренинг',
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w300)),
-                      trailing: const Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Color.fromARGB(125, 43, 43, 43)),
-                      leading: const Icon(Icons.settings_accessibility_outlined,
-                          size: 25),
-                    ),
+                    
+                  
                   ],
                 ),
               ),
@@ -155,7 +103,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 155,
+                height: 160,
                 child: Column(
                   children: [
                     ListTile(
