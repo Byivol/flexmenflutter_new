@@ -29,7 +29,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 270,
+                height: 275,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -100,7 +100,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 160,
+                height: 165,
                 child: Column(
                   children: [
                     ListTile(

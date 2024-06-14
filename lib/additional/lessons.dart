@@ -33,7 +33,6 @@ class _FitLessonState extends State<FitLesson> {
       child: InkWell(
         onTap: () {
           if (widget.isSelected == true) {
-            print(widget.isSelected);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return DelObjectDetailsScreen(this.widget, () {
                 setState(() {
@@ -42,7 +41,6 @@ class _FitLessonState extends State<FitLesson> {
               });
             }));
           } else {
-            print(widget.isSelected);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return AddObjectDetailsScreen(this.widget, () {
                 setState(() {
@@ -179,7 +177,6 @@ class _AddObjectDetailsScreenState extends State<AddObjectDetailsScreen> {
                   isAlertDialog = false;
                 }
                 Navigator.pop(context);
-                print(selectedFitLesson);
               },
               child: Text(
                 'Записаться',

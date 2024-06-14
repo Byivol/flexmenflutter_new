@@ -103,30 +103,16 @@ class _AboutStudiosState extends State<AboutStudios> {
                     height: 54,
                     padding:
                         const EdgeInsets.only(right: 20, left: 20, bottom: 15),
-                    child: TextField(
+                    child: CupertinoTextField(
+                      placeholder: 'Поиск',
+                      prefix: Row(children: [
+                        SizedBox(width: 5),
+                        Icon(CupertinoIcons.search)
+                      ]),
                       cursorColor: const Color.fromARGB(255, 31, 31, 31),
                       onTapOutside: (event) {
                         FocusManager.instance.primaryFocus?.unfocus();
                       },
-                      decoration: InputDecoration(
-                        focusColor: Colors.black,
-                        hintText: 'Поиск',
-                        hintStyle: const TextStyle(
-                            color: Color.fromARGB(127, 0, 0, 0)),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(color: Colors.black)),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: const BorderSide(color: Colors.white)),
-                        contentPadding: const EdgeInsets.only(left: 16.0),
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        filled: true,
-                        suffixStyle: const TextStyle(
-                            color: Colors.black), // Введенный текст
-                        suffixIcon: const Icon(Icons.search,
-                            color: Color.fromARGB(127, 0, 0, 0)),
-                      ),
                     ),
                   ),
                 ],
