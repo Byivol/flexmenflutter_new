@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "468464607433",
+    "project_id": "flutterflexmen",
+    "storage_bucket": "flutterflexmen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468464607433:android:64aa70506c7506e4416d18",
+        "android_client_info": {
+          "package_name": "com.example.flexmenflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsg90RlmRdn8voj0b5EHDbORiXY7EefW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

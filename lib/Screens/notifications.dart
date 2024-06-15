@@ -11,6 +11,7 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         titleSpacing: -1,
         backgroundColor: Colors.black,
@@ -23,28 +24,10 @@ class _NotificationsState extends State<Notifications> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RichText(
-              text: const TextSpan(
-                text: 'Список пуст',
-                style: TextStyle(
-                    letterSpacing: 14,
-                    height: 0,
-                    fontSize: 55,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.w100),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: '',
-                    style: TextStyle(
-                        letterSpacing: 14,
-                        height: 0,
-                        fontSize: 55,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-            ),
+            Text(
+              'Уведомлений нет',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            )
           ],
         ),
       ),

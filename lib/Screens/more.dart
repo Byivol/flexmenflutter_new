@@ -19,7 +19,7 @@ class _MoreState extends State<More> {
           leadingWidth: 100,
           centerTitle: true,
         ),
-        backgroundColor: const Color.fromARGB(255, 228, 228, 228),
+        backgroundColor: Colors.white,
         body: ListView(
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
@@ -29,7 +29,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 255,
+                height: 275,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -66,7 +66,6 @@ class _MoreState extends State<More> {
                     ),
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
-                    
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
@@ -92,8 +91,6 @@ class _MoreState extends State<More> {
                         size: 25,
                       ),
                     ),
-                    
-                  
                   ],
                 ),
               ),
@@ -103,7 +100,7 @@ class _MoreState extends State<More> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: 160,
+                height: 165,
                 child: Column(
                   children: [
                     ListTile(
