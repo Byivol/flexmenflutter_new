@@ -52,6 +52,7 @@ class CupertinoPickerExample extends StatefulWidget {
 }
 final _textFieldController = TextEditingController();
 final _IntlPhoneController = TextEditingController();
+final _controller = TextEditingController();
 
 class _CupertinoPickerExampleState extends State<CupertinoPickerExample> {
   int _selectedFruit = 0;
@@ -162,42 +163,57 @@ TextField(
   },
   
 ),
-SizedBox(height: 10,),
+SizedBox(height: 3),
 
 
-  IntlPhoneField(
-    controller: _IntlPhoneController,
-    searchText: 'Поиск стран',
-    disableLengthCheck: true,
-    decoration: InputDecoration(
+Transform.translate(
+  offset: Offset(-37, 0), 
+  child: Transform.scale(
+    scale: 0.8, 
+    child: IntlPhoneField(
+      controller: _IntlPhoneController,
+      searchText: 'Поиск стран',
+      disableLengthCheck: true,
+      decoration: InputDecoration(
         border: OutlineInputBorder(
-            borderSide: BorderSide.none,
+          borderSide: BorderSide.none,
         ),
-    ),
-    initialCountryCode: 'RU',
-    onChanged: (phone) {
-    },
+      ),
+      initialCountryCode: 'RU',
+      onChanged: (phone) {
+      },
+      style: TextStyle(fontSize: 23), 
+  ),
+),
 ),
   Divider(
       thickness: 1.0,
       color: Color.fromARGB(255, 138, 138, 138),
       
     ), 
-    SizedBox(height: 12),
-  Column(
-  children: [
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Text("  fololeevamk@icloud.com", style: TextStyle(fontSize: 19),),
-    ),
-  ],
+    SizedBox(height: 8),
+TextField(
+  controller: _controller,
+  onSubmitted: (String value) async {
+    await showDialog(
+      context: context, 
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Submitted Text'),
+          content: Text(value),
+          
+        );
+      },
+    );
+  },
+  decoration: InputDecoration(
+    prefixIcon: Icon(Icons.mail_outline),
+  ),
+
 ),
-SizedBox(height: 12),
-Divider(
-  thickness: 1.0,
-      color: Color.fromARGB(255, 138, 138, 138),
-),
-SizedBox(height: 10),
+
+SizedBox(height: 15),
+
 
 TextButton(
   style: ButtonStyle(
@@ -225,6 +241,7 @@ onPressed: () {
         CupertinoDialogAction(child: Text("Да"), onPressed: () {
           _textFieldController.clear();
           _IntlPhoneController.clear();
+          _controller.clear();
           Navigator.pop(context);
         },),
         CupertinoDialogAction(child: Text("Нет"), onPressed: () {
@@ -237,6 +254,7 @@ onPressed: () {
   child: Text('Отправить'),
 ),
         ],
+
         
         
       ),
