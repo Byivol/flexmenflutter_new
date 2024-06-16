@@ -5,7 +5,6 @@ import 'package:theflexmen/screens.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:theflexmen/additional/checkmark.dart';
-import 'package:theflexmen/additional/lessons.dart';
 
 import 'package:theflexmen/routes/schedule.dart';
 import 'package:theflexmen/routes/feedback.dart';
@@ -20,14 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<void> _makePhoneCall() async {
-    final Uri launchUri = Uri(
-      scheme: 'tel',
-      path: '89292615056',
-    );
-    await launchUrl(launchUri);
-  }
-
   CarouselController controller = CarouselController();
   int _current = 0;
   final List<String> _imgList = [
@@ -107,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.qr_code_scanner)),
         actions: [
           IconButton(
-              onPressed: _makePhoneCall,
+              onPressed: makePhoneCall,
               icon: const Icon(
                 Icons.call,
                 size: 26,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:intl/intl.dart';
-import 'package:theflexmen/additional/lessons.dart';
 import 'package:theflexmen/screens.dart';
 
 class Schedule extends StatefulWidget {
@@ -105,7 +104,7 @@ class _ScheduleState extends State<Schedule> {
                 Column(
                   children: lessons
                               .getLessonsForDate(_controller.selectedDate)
-                              ?.isNotEmpty ==
+                              .isNotEmpty ==
                           true
                       ? lessons.getLessonsForDate(_controller.selectedDate)!
                       : [

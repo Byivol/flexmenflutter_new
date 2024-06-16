@@ -34,7 +34,10 @@ class _MoreState extends State<More> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        pushWithNavBar(context,
+                            MaterialPageRoute(builder: (context) => Account()));
+                      },
                       title: const Text('Личный кабинет',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -45,7 +48,9 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        persistentTabController.jumpToTab(1);
+                      },
                       title: const Text('Мои занятия',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -56,7 +61,12 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        pushWithNavBar(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Schedule()));
+                      },
                       title: const Text('Расписание',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -69,7 +79,9 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        persistentTabController.jumpToTab(2);
+                      },
                       title: const Text('О студии',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -80,7 +92,9 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        makePhoneCall();
+                      },
                       title: const Text('Позвонить в студию',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -104,7 +118,9 @@ class _MoreState extends State<More> {
                 child: Column(
                   children: [
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        persistentTabController.jumpToTab(3);
+                      },
                       title: const Text('Уведомления',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -116,7 +132,10 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        pushScreen(context,
+                            screen: FeedbackTF(), withNavBar: true);
+                      },
                       title: const Text('Обратная связь',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),
@@ -127,7 +146,16 @@ class _MoreState extends State<More> {
                     const Divider(
                         color: Color.fromARGB(20, 0, 0, 0), height: 0),
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        IconSnackBar.show(
+                          context,
+                          snackBarType: SnackBarType.alert,
+                          snackBarStyle: const SnackBarStyle(
+                            maxLines: 1,
+                          ),
+                          label: 'Ошибка!',
+                        );
+                      },
                       title: const Text('О приложении',
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w300)),

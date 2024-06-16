@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:intl/intl.dart';
 import 'package:theflexmen/screens.dart';
 
+// ignore: must_be_immutable
 class FitLesson extends StatefulWidget {
   final String nameLesson;
   final String timeLesson;
