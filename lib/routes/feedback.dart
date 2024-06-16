@@ -12,6 +12,7 @@ class FeedbackTF extends StatefulWidget {
 
 class _FeedbackTFState extends State<FeedbackTF> {
   final TextEditingController controller = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +140,7 @@ Widget build(BuildContext context) {
               ],
             ),
           ),
-SizedBox(height: 10),
+SizedBox(height: 5),
 TextField(
   controller: _textFieldController,
   decoration: InputDecoration(
@@ -163,7 +164,7 @@ TextField(
   },
   
 ),
-SizedBox(height: 3),
+SizedBox(height: 0),
 
 
 Transform.translate(
@@ -186,33 +187,40 @@ Transform.translate(
   ),
 ),
 ),
-  Divider(
-      thickness: 1.0,
-      color: Color.fromARGB(255, 138, 138, 138),
+  
       
-    ), 
-    SizedBox(height: 8),
+    
+SizedBox(height: 0),
 TextField(
-  controller: _controller,
+  controller: _controller..text = 'fololeevamk@icloud.com', 
   onSubmitted: (String value) async {
     await showDialog(
       context: context, 
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Submitted Text'),
+          title: Text('Ваша почта'),
           content: Text(value),
-          
         );
       },
     );
   },
   decoration: InputDecoration(
     prefixIcon: Icon(Icons.mail_outline),
+    disabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey,),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color.fromARGB(255, 173, 173, 173)), 
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color.fromARGB(255, 173, 173, 173)), 
+    ),
   ),
-
+  style: TextStyle(fontSize: 20), 
 ),
 
-SizedBox(height: 15),
+
+SizedBox(height: 20),
 
 
 TextButton(
@@ -257,10 +265,11 @@ onPressed: () {
 
         
         
-      ),
+      )
     ),
   );
+    
+
 }
 }
-  
-  
+

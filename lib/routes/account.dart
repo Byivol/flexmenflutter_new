@@ -42,7 +42,10 @@ class _AccountState extends State<Account> {
             SizedBox(height: 10),
             Row(
               children: [
-                Icon(Icons.person_outlined, size: 30, color: const Color.fromARGB(255, 0, 0, 0)),
+                Container(
+                  width: 30, // fixed width
+                  child: Icon(Icons.person_outlined, size: 30, color: const Color.fromARGB(255, 0, 0, 0)),
+                ),
                 SizedBox(width: 8), 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,12 +91,15 @@ InkWell(
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SizedBox(height: 10),
+      SizedBox(height: 8),
       Row(
         children: [
-          Icon(Icons.article_outlined, size: 30, color: const Color.fromARGB(255, 0, 0, 0)),
-          SizedBox(width: 8), 
-          Expanded( // Add Expanded here
+          Container(
+            width: 50, 
+            child: Icon(Icons.article_outlined, size: 30, color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
+          SizedBox(width: 2), 
+          Expanded( 
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
