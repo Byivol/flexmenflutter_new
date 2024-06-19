@@ -64,13 +64,13 @@ class FitLesson extends StatelessWidget {
                       TextSpan(
                           text: '\nСвобоно: $countFree',
                           style: const TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
+                              color: Color.fromARGB(195, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                       TextSpan(
                           text: '\n$nameTrainer',
                           style: const TextStyle(
-                              color: Color.fromARGB(169, 0, 0, 0),
+                              color: Color.fromARGB(195, 0, 0, 0),
                               fontSize: 13,
                               fontWeight: FontWeight.w100)),
                     ],
@@ -129,4 +129,3 @@ class SelectedFitLesson extends StatelessWidget {
     ));
   }
 }
-

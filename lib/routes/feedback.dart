@@ -110,6 +110,9 @@ class _FeedbackTFState extends State<FeedbackTF> {
                 ),
                 SizedBox(height: 5),
                 TextField(
+                  onTapOutside: (event) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   controller: _textFieldController,
                   cursorColor: const Color.fromARGB(255, 31, 31, 31),
                   decoration: InputDecoration(
@@ -158,6 +161,9 @@ class _FeedbackTFState extends State<FeedbackTF> {
                 ),
                 SizedBox(height: 0),
                 TextField(
+                  onTapOutside: (event) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   cursorColor: const Color.fromARGB(255, 31, 31, 31),
                   controller: _controller..text = 'fololeevamk@icloud.com',
                   onSubmitted: (String value) async {
